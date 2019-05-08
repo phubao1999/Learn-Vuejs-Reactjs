@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-show="user.gender == 1 && user.name != null" style="color:red">Chào anh {{ user.name }}</h1>
+        <h1 v-show="user.gender == 2 && user.name != null" style="color:green">Chào chị {{ user.name }}</h1>
+        <h1 v-show="user.name == null" style="color:blue">Ví dụ về v-show</h1>
+        <h1 v-show="user.gender == 3" style="color:brown">Text</h1>
+        <br>
+        <label for="">Họ Và Tên</label>
+        <input v-model="user.name" placeholder="Vui lòng điền tên của bạn">
+        <br>
+        <label for="">Giới Tính</label>
+        <select v-model="user.gender">
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">None</option>
+        </select>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                user: {}
+            }
+        })
+        //Nó khác ở v-if ở chỗ khi giá trị nhập không phù hợp bị ẩn đi thì giá trị của phần tử sẽ được thêm là display: none;
+    </script>
+</body>
+</html>

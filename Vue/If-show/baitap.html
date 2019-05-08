@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài tập sử dụng v-if Vuejs - Allaravel.com</title>
+</head>
+<body>
+    <div class="thongtin">
+        <p>Thiết Kế Thông Tin Đăng Nhập</p>
+        <ul>
+            <li>Địa chỉ email: test@allaravel.com</li>
+            <li>Mật Khẩu: 123456</li>
+        </ul>
+    </div>
+    <div id="app">
+        <h1 v-if="user.email == 'test@allaravel.com' && user.password == '123456'" style="color: green;">Chào mừng {{ user.email }} đã đăng nhập thành công!</h1>
+        <h1 v-if="(user.email != 'test@allaravel.com' && user.email != null) || (user.password != '123456' && user.password != null)" style="color: red;">Thông tin đăng nhập sai, vui lòng thử lại!</h1>
+        <br>
+        <div v-if="user.email != 'test@allaravel.com' || user.password != '123456'">
+            <label>Địa chỉ email</label>
+            <input type="text" v-model="user.email">
+            <br>
+            <label>Mật khẩu</label>
+            <input type="password" v-model="user.password">
+        </div>
+        
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                user: {}
+            }
+        })
+    </script>
+</body>
+</html>

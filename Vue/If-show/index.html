@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if="user.gender == 1 && user.name != null" style="color: red;">Chào anh {{ user.name }}</h1>
+        <h1 v-else-if="user.gender == 2 && user.name != null" style="color: green">Chào chị {{ user.name }}</h1>
+        <h1 v-else style="color: blue">Ví dụ về v-if</h1>
+        <br>
+        <label>Họ và tên</label>
+        <input v-model="user.name" placeholder="Nhập vào tên bạn">
+        <br>
+        <label>Giới tính</label>
+        <select v-model="user.gender">
+            <option value="1">Nam</option>
+            <option value="2">Nữ</option>
+        </select>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                user: {}
+            }
+        })
+    </script>
+</body>
+
+</html>
