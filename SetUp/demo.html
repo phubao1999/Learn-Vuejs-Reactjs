@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- <div class="title">ReactJs Tutorials</div>
+    <img src="http://lorempixel.com/400/200" alt=""> -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script>
+        const title = React.createElement('p', {
+        	className: 'title'
+        }, 'My List Of My Best Book');
+        const ul = React.createElement('ul', 'li');
+        let li = React.createElement('li',{
+            className: 'ok'
+        }, 'Đắc Nhân Tâm');
+        let li2 = React.createElement('li',{
+            className: 'ok'
+        }, 'Code Dạo Ký Sự');
+        let li3 = React.createElement('li',{
+            className: 'ok'
+        }, '7 Viên Ngọc Rồng');
+        const app = React.createElement('div', null, ul, li, li2, li3, title);
+      	const root = document.getElementById('root');
+				ReactDOM.render(app, root);
+    </script>
+</body>
+
+</html>
