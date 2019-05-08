@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input v-model="alert">
+        <h1>{{message}}</h1>
+        <h2 v-html="message"></h2>
+        <h3 id="math"></h3>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                alert: 'Click Me',
+                message: 'Xin chào, tôi là <span style="color: #41B883;">Vue</span>.<span style="color: #354B5E;">js</span>',
+            }
+        })
+        // Khi sử dụng câu lệnh v-html (12) thì Câu lệnh được render ra trong mã html mới biến đổi được css
+        // Cú pháp <img src="{{ imageUrl }}>" Sai
+        // Cú Pháp <img v-bind:src="imageUrl"> Đúng
+        // ==>> Vì Không sử dụng cú pháp {{ }} trong một thuộc tính của thẻ HTML. Thay vào đó sử dụng câu lệnh v-bind để gán một giá trị vào một thuộc tính trong thẻ HTML
+    </script>
+</body>
+</html>
