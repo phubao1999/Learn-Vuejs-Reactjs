@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thiết lập thuộc tính class với v-bind Vuejs - Allaravel.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app" class="container">        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Thiết lập thuộc tính class với v-bind</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" v-model="success"> Màu xanh
+            </div>
+            <div class="col-md-12">
+                <input type="checkbox" v-model="mark"> Highlight
+            </div>
+            <div class="col-md-12">
+                <input type="checkbox" v-model="uppercase"> Viết hoa tất cả
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p v-bind:class="{'text-success': success, 'mark': mark, 'text-uppercase': uppercase}">
+                    Vue.js là một framework Javascript tuyệt vời, dễ học và áp dụng cho các dự án web. Bạn dễ dàng làm chủ Vue với Khóa học Vue.js 2 miễn phí trong 7 ngày.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>  
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                success: true,
+                mark: false,
+                uppercase: false
+            }
+        })
+    </script>
+</body>
+</html>

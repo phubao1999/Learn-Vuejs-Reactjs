@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Thiết lập thuộc tính class với v-bind Vuejs - Allaravel.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Thiết lập thuộc tính class với v-bind</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label>Chọn màu</label>
+            </div>
+            <div class="col-md-2">
+                <input type="radio" value="text-success" v-model="textColor"> Màu xanh lục
+            </div>
+            <div class="col-md-2">
+                <input type="radio" value="text-danger" v-model="textColor"> Màu đỏ
+            </div>
+            <div class="col-md-2">
+                <input type="radio" value="text-info" v-model="textColor"> Màu xanh lam
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label>Căn lề chữ</label>
+            </div>
+            <div class="col-md-2">
+                <input type="radio" value="text-left" v-model="textAlignment"> Trái
+            </div>
+            <div class="col-md-2">
+                <input type="radio" value="text-center" v-model="textAlignment"> Giữa
+            </div>
+            <div class="col-md-2">
+                <input type="radio" value="text-right" v-model="textAlignment"> Phải
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p
+                    v-bind:class="[textColor, textAlignment, (textAlignment == 'text-left') ? 'border-left' : (textAlignment == 'text-right') ? 'border-right' : 'border-left border-right']">
+                    Vue.js là một framework Javascript tuyệt vời, dễ học và áp dụng cho các dự án web. Bạn dễ dàng làm
+                    chủ Vue với Khóa học Vue.js 2 miễn phí trong 7 ngày. Kiến thức Vue.js kết hợp với Laravel giúp bạn
+                    có thể tạo ra những hệ thống thực sự phức tạp với hiệu suất hoạt động cao. Ngoải ra bạn cũng cần có
+                    những kiến thức cơ bản về CSS, ES6... là nền tảng rất cơ bản của thiết kế web.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 abc" v-bind:style="styleObject">
+                Tên Tôi Là Bảo Tường
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                textColor: 'text-success',
+                textAlignment: 'text-left'
+            }
+        })
+        // Một Cách khách để thiết lập inline Style
+        // <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>;
+        // data: {
+        //     activeColor: 'red',
+        //     fontSize: 30
+        // }
+
+        var test = new Vue({
+            el: '.abc',
+            data: {
+                styleObject: {
+                    color: 'blue',
+                    fontSize: '20px',
+                    margin: 'auto'
+                }
+            }
+        })
+        // Chúng ta có thể đưa nhiều styleObject vào v-bind:style
+        // Vd: <div v-bind:style="[baseStyles, overridingStyles]">
+    </script>
+</body>
+
+</html>

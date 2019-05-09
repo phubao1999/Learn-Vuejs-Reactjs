@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thiết lập thuộc tính class với v-bind Vuejs - Allaravel.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert" :class="{'alert-success':isSuccess,'alert-warning':!isSuccess}" :style="{fontSize:fontSize + 'px'}">
+                    <strong>Cảnh báo!</strong> Vue.js là framework gây nghiện, bạn cần chú ý khi sử dụng :))
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" v-on:click="myClickHandler" class="btn btn-primary">Nhấn thử</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                isSuccess: true,
+                fontSize: 14
+            },
+            methods: {
+                myClickHandler: function() {
+                    this.isSuccess = !this.isSuccess;
+                    this.fontSize += 1;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
