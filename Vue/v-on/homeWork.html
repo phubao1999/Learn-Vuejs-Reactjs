@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Máy tính bỏ túi</h1>
+            </div>
+            <div class="col-md-12 text-center">
+                <p>Ứng dụng máy tính bỏ túi demo quản lý sự kiện với cú pháp v-on trong Vue.js. Ví dụ nằm trong khuôn
+                    khổ <a href="https://allaravel.com/tutorials/vuejs-framework/khoa-hoc-vue-js-2-mien-phi/">Khóa học
+                        Vue.js miễn phí</a> tại All Laravel</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-12 offset-md-4 text-right border">
+                <h2>{{ resultString }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 col-3 offset-md-4 btn btn-danger" @click="clearScreen">C</div>
+            <div class="col-md-1 col-3 border btn" @click="calculate('i')">+/-</div>
+            <div class="col-md-1 col-3 border btn" @click="calculate('%')">%</div>
+            <div class="col-md-1 col-3 border btn" @click="calculate('/')">/</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 col-3 offset-md-4 border btn" @click="inputNumber('7')">7</div>
+            <div class="col-md-1 col-3 border btn" @click="inputNumber('8')">8</div>
+            <div class="col-md-1 col-3 border btn" @click="inputNumber('9')">9</div>
+            <div class="col-md-1 col-3 border btn" @click="calculate('*')">*</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 col-3 offset-md-4 border btn" @click="inputNumber('4')">4</div>
+            <div class="col-md-1 col-3 border btn" @click="inputNumber('5')">5</div>
+            <div class="col-md-1 col-3 border btn" @click="inputNumber('6')">6</div>
+            <div class="col-md-1 col-3 border btn" @click="calculate('-')">-</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 col-3 offset-md-4 border btn" @click="inputNumber('1')">1</div>
+            <div class="col-md-1 col-3 border btn" @click="inputNumber('2')">2</div>
+            <div class="col-md-1 col-3 border btn" @click="inputNumber('3')">3</div>
+            <div class="col-md-1 col-3 border btn" @click="calculate('+')">+</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-6 offset-md-4 border btn" @click="inputNumber('0')">0</div>
+            <div class="col-md-1 col-3 border btn" @click="inputNumber('.')">.</div>
+            <div class="col-md-1 col-3 border btn" @click="calculate('=')">=</div>
+        </div>
+    </div>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                realValue: '',
+                resultString: '0',
+                expression: '',
+                currentOperator: ''
+            },
+            methods: {
+                inputNumber: function (number) {
+                    if (number == '.' && this.resultString.includes('.')) {
+                        return;
+                    } else if (this.resultString == '0') {
+                        this.resultString = number;
+                        this.realValue = number;
+                    } else {
+                        this.realValue += number;
+                        this.resultString = this.realValue;
+                    }
+                },
+                calculate: function (operator) {
+                    if (operator == '=' && this.currentOperator != '') {
+                        this.expression += this.resultString;
+                        this.resultString = eval(this.expression).toString();
+                        this.realValue = '';
+                        this.currentOperator = '';
+                        this.expression = this.resultString;
+                    } else if (operator == '%') {
+                        this.expression = '';
+                        this.resultString = (this.resultString / 100).toString();
+                        this.realValue = this.resultString;
+                    } else if (operator == 'i') {
+                        if (this.resultString == 0) {
+                            return;
+                        }
+                        if (this.resultString[0] == '-') {
+                            this.resultString = this.resultString.substr(1);
+                        } else {
+                            this.resultString = '-' + this.resultString;
+                            this.realValue = this.resultString;
+                        }
+                    } else {
+                        this.currentOperator = operator;
+                        this.expression += this.realValue;
+                        this.resultString = eval(this.expression).toString();
+                        this.expression = this.resultString;
+                        this.expression += operator;
+                        this.realValue = '';
+                    }
+                },
+                clearScreen: function () {
+                    if (this.resultString != '0') {
+                        this.expression = '';
+                        this.resultString = '0';
+                        this.realValue = '';
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
