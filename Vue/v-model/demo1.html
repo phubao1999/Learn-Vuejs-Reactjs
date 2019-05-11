@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="ex1">
+        <input type="text" v-model="message" placeholder="Nhập Tên Của Bạn">
+        <p>Tên Của Bạn Là {{message}}</p>
+    </div>
+    <!--TextBox-->
+    <hr>
+    <div id="ex2">
+        <span>Nội Dung Text Area</span>
+        <p style="white-space: pre">{{message}}</p>
+        <br>
+        <textarea v-model="message" placeholder="Nhập vào nội dung"></textarea>
+    </div>
+    <!--TextArea-->
+    <hr>
+    <div id="ex3">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+    </div>
+    <!--CheckBox-->
+    <hr>
+    <div id="ex4">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked Name: {{checkedNames}}</span>
+    </div>
+    <!--MoreCheckBox-->
+    <div id="ex5">
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+    </div>
+    <!--Radio-->
+    <div id="ex6">
+        <select v-model="selected">
+            <option disabled value="">Lựa Chọn Frame Work yêu Thích</option>
+            <option v-model="selected">Agular</option>
+            <option v-model="selected">ReacJs</option>
+            <option v-model="selected">VueJs</option>
+        </select>
+        <span>Bạn Chọn Sử Dụng Frame Work: {{ selected }}</span>
+    </div>
+    <!--Selected-->
+    <div id="ex7">
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }} have</span>
+    </div>
+    <!--Selected Use V-for-->
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        let v1 = new Vue({
+            el: '#ex1',
+            data: {
+                message: ''
+            }
+        })
+        let v2 = new Vue({
+            el: '#ex2',
+            data: {
+                message: ''
+            }
+        })
+        let v3 = new Vue({
+            el: '#ex3',
+            data: {
+                checked: true
+            }
+        })
+        let v4 = new Vue({
+            el: '#ex4',
+            data: {
+                checkedNames: []
+            }
+        })
+        let v5 = new Vue({
+            el: '#ex5',
+            data: {
+                picked: ''
+            }
+        })
+        let v6 = new Vue({
+            el: '#ex6',
+            data: {
+                selected: ''
+            }
+        })
+        let v7 = new Vue({
+            el: '#ex7',
+            data: {
+                selected: 'A',
+                options: [{
+                        text: 'One',
+                        value: 'A'
+                    },
+                    {
+                        text: 'Two',
+                        value: 'B'
+                    },
+                    {
+                        text: 'Three',
+                        value: 'C'
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Ví dụ giả lập gán dữ liệu hai chiều sử dụng v-bind và v-on</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-success">{{ message }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-right">
+                <label>v-bind kết hợp v-on</label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" v-bind:value="message"
+                    v-on:keyup="message = $event.target.value">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-right">
+                <label>v-model với sự kiện input mặc định</label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" v-model="message">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-right">
+                <label>v-model với tùy chọn .lazy</label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" v-model.lazy="message">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: `Hello, I'm Vue.Js`
+            }
+        })
+        //v-model.lazy là Phương thức thay đổi content nhưng yêu cầu là phải có sao lưu
+    </script>
+</body>
+
+</html>
