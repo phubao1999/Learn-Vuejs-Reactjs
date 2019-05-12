@@ -1,7 +1,7 @@
 ..)V-if V-show
 ..)V-model
 ..){{....}}
-..)v-bind (Sử dụng để định nghĩa class)
+..)v-bind (Sử dụng để định nghĩa class)(Thường Sử Dụng Trong Css)
 <div v-bind:class="{ active: isActive }"></div>
 data: {
   isActive: true,
