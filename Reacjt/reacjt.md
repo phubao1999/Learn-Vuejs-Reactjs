@@ -1,3 +1,4 @@
+<!-- toán tử AND (&&), toán tử OR (||) và toán tử NOT (!). -->
 <!-- JSX: Là cú pháp cho Js. Nó khá giống với html thuần. -->
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -74,3 +75,19 @@ ReactDOM.render(
 	img, 
 	document.getElementById('app')
 );
+<!-- Keys == 'Id in Html' -->
+const people = ['Rowe', 'Prevost', 'Gare'];
+
+const peopleLis = people.map((person, i) =>
+  // expression goes here:
+  <li key={'person_' + i}>{person}</li>
+);
+
+// ReactDOM.render goes here:
+ReactDOM.render(<ul>{peopleLis}</ul>, document.getElementById('app'));
+<!-- React.createElement -->
+const greatestDivEver = React.createElement(
+	"div",
+  null,
+  "i am div"
+);  // const greatestDivEver = <div>i am div</div>;
