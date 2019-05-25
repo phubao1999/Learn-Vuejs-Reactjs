@@ -93,3 +93,17 @@ const greatestDivEver = React.createElement(
   null,
   "i am div"
 );  // const greatestDivEver = <div>i am div</div>;
+<!-- React.Component is the way to declare a new component class. -->
+<!-- UpperCamelCase. -->
+<!-- subclassing React.Component, you create a new component class. This is not a component! A component class is more like a factory that produces components. When you start making components, each one will come from a component class. -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class MyComponentClass extends React.Component {
+  render() {
+    return <h1>Hello world</h1>;
+  }
+}
+
+// component goes here:
+ReactDOM.render(<MyComponentClass />, document.getElementById('app'))
