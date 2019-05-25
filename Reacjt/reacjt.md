@@ -1,8 +1,10 @@
+ReactJs v16.8
 <!-- toán tử AND (&&), toán tử OR (||) và toán tử NOT (!). -->
 <!-- JSX: Là cú pháp cho Js. Nó khá giống với html thuần. -->
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+<!-- 2 dòng code trên để import các components của reactjs -->  
+<!-- Components là các thành phần của chương trình đảm nhận 1 nhiệm vụ gì đó. Có thể sử dụng lại bằng thuộc tính thừa kề. Class extends ..... -->
 // Write code here:
 var myList = (
 	<ul>
@@ -19,7 +21,7 @@ var myDiv = <div className="big">I AM A BIG DIV</div>
 ReactDOM.render(myDiv, document.getElementById('app'))
 <!-- Các thẻ html không có thẻ đóng có thế viết sang JSX như sau <br> ==> <br /> -->
 ReactDOM.render(<h1>{2 + 3}</h1>, document.getElementById('app')); // output 5
-ReactDOM.render(<h1>{2 + 3}</h1>, document.getElementById('app')); // output 2 + 3
+ReactDOM.render(<h1>2 + 3</h1>, document.getElementById('app')); // output 2 + 3
 =====================================================
 const theBestString = 'tralalalala i am da best';
 ReactDOM.render(<h1>{theBestString}</h1>, document.getElementById('app')); // OutPut:tralalalala i am da best
