@@ -106,4 +106,159 @@ class MyComponentClass extends React.Component {
 }
 
 // component goes here:
-ReactDOM.render(<MyComponentClass />, document.getElementById('app'))
+ReactDOM.render(<MyComponentClass />, document.getElementById('app'));
+<!-- Render Class Components -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const owl = {
+  title: 'Excellent Owl',
+  src: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-owl.jpg'
+};
+
+// Component class starts here:
+class Owl extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>{owl.title}</h1>
+        <img src={owl.src} alt={owl.title} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Owl />,
+  document.getElementById('app')
+);
+<!-- Class Component Logic -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+const friends = [
+  {
+    title: "Yummmmmmm",
+    src: "https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-monkeyweirdo.jpg"
+  },
+  {
+    title: "Hey Guys!  Wait Up!",
+    src: "https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-earnestfrog.jpg"
+  },
+  {
+    title: "Yikes",
+    src: "https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-alpaca.jpg"
+  }
+];
+
+// New component class starts here:
+class Friend extends React.Component {
+  render(){
+    let friend = friends[0];
+    return(
+    	<div>
+        <h1>{friend.title}</h1>
+        <img src={friend.src}/>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+	<Friend />,
+  document.getElementById('app')
+)
+<!-- If Else Trong Class Component -->
+<!-- If Phải sau render function và trước return -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const fiftyFifty = Math.random() < 0.5;
+
+// New component class starts here:
+class TonightsPlan extends React.Component{
+	render(){
+    if(fiftyFifty){
+			return <h1>Tonight I'm going out WOOO</h1>
+    }
+    else {
+			return <h1>Tonight I'm going to bed WOOO</h1>
+    }
+  }
+}
+
+ReactDOM.render(
+	<TonightsPlan />,
+  document.getElementById('app')
+)
+<!-- This In React Conponents -->
+<!-- Add Event Listener On class Components -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class Button extends React.Component {
+  scream() {
+    alert('AAAAAAAAHHH!!!!!');
+  }
+
+  render() {
+    return <button onClick={this.scream}>AAAAAH!</button>;
+  }
+}
+
+ReactDOM.render(
+	<Button />,
+  document.getElementById('app')
+)
+<!-- Trong ReactJS, mỗi đoạn code sẽ được phân chia thành những Component không lệ thuộc lẫn nhau và có thể tái sử dụng khi cần thiết -->
+<!-- Components Interact -->
+class OMG extends React.Component {
+  render() {
+    return <h1>Whooaa!</h1>;
+  }
+}
+
+class Crazy extends React.Component {
+  render() {
+    return <OMG />;
+  }
+}
+Ở Ví dụ này, Class Crazy Render class OMG Có Nghĩa là 1 class có thể render() another Class
+<!-- VD Cấp cao hơn. Ta có 1 file NavBar.js. Nhiệm Vụ Là render Class NavBar Ở trong Class ProfilePage (File: ProfilePage.js) -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {NavBar} from './NavBar.js'; //Import Class NavBar từ file NavBar.js. Nếu Không NavBar sẽ bị undifined
+
+class ProfilePage extends React.Component {
+  render() {
+    return (
+      <div>
+				<NavBar />
+        <h1>All About Me!</h1>
+        <p>I like movies and blah blah blah blah blah</p>
+        <img src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-monkeyselfie.jpg" />
+      </div>
+    );
+  }
+}   //Đây là file ProfilePage.js
+ReactDOM.render(
+	<ProfilePage />,
+  document.getElementById('app')
+)   // Render
+import React from 'react';
+
+export class NavBar extends React.Component {    // Để Import được ta file export File Cần được import vào
+  render() {
+    const pages = ['home', 'blog', 'pics', 'bio', 'art', 'shop', 'about', 'contact'];
+    const navLinks = pages.map(page => {
+      return (
+        <a href={'/' + page}>
+          {page}
+        </a>
+      )
+    });
+
+    return <nav>{navLinks}</nav>;
+  }
+}  //Đây là file NavBar
