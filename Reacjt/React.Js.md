@@ -1,4 +1,5 @@
 ReactJs v16.8
+JSON.stringify Dùng để chuyển đổi Data thông thường sang data dạng JSON
 <!-- toán tử AND (&&), toán tử OR (||) và toán tử NOT (!). -->
 <!-- JSX: Là cú pháp cho Js. Nó khá giống với html thuần. -->
 import React from 'react';
@@ -262,3 +263,37 @@ export class NavBar extends React.Component {    // Để Import được ta fil
     return <nav>{navLinks}</nav>;
   }
 }  //Đây là file NavBar
+
+<!-- Props trong ReactJs -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class PropsDisplayer extends React.Component {
+  render() {
+  	const stringProps = JSON.stringify(this.props);
+
+    return (
+      <div>
+        <h1>CHECK OUT MY PROPS OBJECT</h1>
+        <h2>{stringProps}</h2>
+      </div>
+    );
+  }
+}
+
+// ReactDOM.render goes here:
+ReactDOM.render(<PropsDisplayer myProp="Hello"/>, document.getElementById('app'));
+<!-- Render() -->
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class Greeting extends React.Component {
+  render() {
+    return <h1>Hi there, {this.props.name}!</h1>;
+  }
+}
+
+ReactDOM.render(
+  <Greeting name='Groberta' />, 
+  document.getElementById('app')
+);
