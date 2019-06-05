@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <form action="http://test.intern.justgola.com:2903/apply" method="post" id="myForm" target="_blank"
+            style="margin:auto;">
+            name: <input type="text" name="name" value="Phù Tường Bảo"> <br>
+            email: <input type="email" name="email" value="phutuongbao1999@gmail.com"> <br>
+            phone: <input type="number" name="phone" value="0921006940"> <br>
+            position: <input type="text" name="position" value="Intern FrontEnd">
+            <input type="submit" value="Submit">
+        </form>
+        <form action="http://test.intern.justgola.com:2903/level1" method="post" id="myForm" target="_blank">
+            answer1: <input type="text" name="answer1" value="efe01e269cf91842f455e3e22db95566" style="width: 50%;">
+            <input type="submit" value="Submit">
+        </form>
+        <script>
+            function nthPrime(n) {
+                var P = 0;
+
+                function isPrime(x) {
+                    var isPrime = true;
+
+                    for (var d = 2; d <= Math.sqrt(x); d++) {
+                        if ((x / d) % 1 == 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+
+                    return isPrime;
+                }
+
+                for (var i = 1; 0 < n; i++) {
+
+                    if (isPrime(i)) {
+                        P = i;
+                        n--;
+                    }
+
+                    if (3 <= i) {
+                        i++;
+                    }
+
+                }
+
+                return P;
+            }
+
+            console.log(nthPrime(1001));
+        </script>
+        <form action="http://test.intern.justgola.com:2903/level2" method="POST" id="myForm" target="_blank">
+            answer2: <input type="number" name="answer2" value="7919">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+
+    <footer style="position: fixed; bottom:0;">
+        By Phù Tường Bảo
+    </footer>
+
+</body>
+
+</html>
