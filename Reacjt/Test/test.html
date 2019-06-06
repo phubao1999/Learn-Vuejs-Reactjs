@@ -32,16 +32,50 @@
     </form>
 
 
+    <script>
+        function nthPrime(n) {
+            var P = 0;
 
+            function isPrime(x) {
+                var isPrime = true;
+
+                for (var d = 2; d <= Math.sqrt(x); d++) {
+                    if ((x / d) % 1 == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+
+                return isPrime;
+            }
+
+            for (var i = 1; 0 < n; i++) {
+
+                if (isPrime(i)) {
+                    P = i;
+                    n--;
+                }
+
+                if (3 <= i) {
+                    i++;
+                }
+
+            }
+
+            return P;
+        }
+
+        console.log(nthPrime(1001));
+    </script>   <!--Lv2-->
     <script>
         function reverseString(str) {
-            let splitString = str.split("");
-            let reverseArray = splitString.reverse();
-            let joinArray = reverseArray.join("");
+            let splitString = str.split("");    // Tách string. Hello = 'h', 'e', 'l' 'l' 'o'  (1)
+            let reverseArray = splitString.reverse();   // Đảo chuỗi. (1) => 'o' 'l' 'l' 'e' 'h'  (2)
+            let joinArray = reverseArray.join("");   // Nối Chuỗi (2) => olleh
             console.log(joinArray);
         }
 
         reverseString('974796360276e616e402164402c24737964402571686340296168402c24756562747350257864502e616650276e616f684023353');
-    </script>
+    </script>  <!--Lv3 Test-->
 </body>
 </html>
