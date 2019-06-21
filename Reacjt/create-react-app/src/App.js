@@ -6,19 +6,29 @@ class App extends Component{
   constructor(){
     super();
     this.todoItems = [
-      'Go Play Soccer',
-      'English',
-      'Gay'
+      // { title: 'Go Play Soccer', isCompleted: true},
+      // { title: 'English', isCompleted: true},
+      // { title: 'Gay'}
     ];
   }
   render(){
-    return (
-      <div className="App">
-        {
-          this.todoItems.map((item, index) => <TodoItem key={index} title={item} />)
-        }
-      </div>
-    )
+    if(this.todoItems.length > 0){
+      return (
+        <div className="App">
+          {
+            this.todoItems.map((item, index) => 
+              <TodoItem key={index} item={item} />
+            )
+          }
+        </div>
+      )
+    } else {
+      return (
+        <div className="App">
+        Nothing Here
+       </div>
+      )
+    }
   }
 }
 
