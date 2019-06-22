@@ -155,7 +155,6 @@
 //     document.querySelector('body').classList.toggle('bg-dark');
 //     document.querySelector('.items').lastElementChild.innerHTML = '<h2>Hello Word!!!</h2>'
 // })
-
 const myForm = document.querySelector('#my-form');
 const nameInput = document.querySelector('#name');
 const emailInput = document.querySelector('#email');
